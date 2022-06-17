@@ -1,0 +1,53 @@
+<div class="container py-5">
+    <div class="row justify-content-center" *ngIf="!(isSearch)">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Enter PNR No</h5>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="text" #PNR placeholder="Enter PNR">
+                        </div>
+                        <div  class=" col-md-3">
+                            <button type="submit" class="btn btn-primary" (click)="getBookingByPNR(PNR.value)">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="isSearch">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Booking Details</h5>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Flight Number</th>
+                            <th scope="col">PNR</th>
+                            <th scope="col">Passenger Name</th>
+                            <th scope="col">Source</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">StartTime</th>
+                            <th scope="col">EndTime</th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let booking of details">
+                            <td>{{booking.flightNumber}}</td>
+                            <td>{{booking.pnr}}</td>
+                            <td>{{booking.passengerName}}</td>
+                            <td>{{booking.source}}</td>
+                            <td>{{booking.destination}}</td>
+                            <td>{{booking.startingTime}}</td>
+                            <td>{{booking.endingTime}}</td>                             
+                        </tr>
+                        <td colspan="rowscount">
+                            <button type="submit" class="btn btn-danger" (click)="cancelBooking()">Cancel Booking</button>
+                        </td>                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

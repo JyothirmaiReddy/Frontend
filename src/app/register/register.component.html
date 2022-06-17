@@ -1,0 +1,52 @@
+<section class="vh-100">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-light text-center">
+                        <h3>Signup</h3>
+                    </div>
+                    <div class="card-body bg-light">
+                        <form [formGroup]="registerUserData.formregistergroup">
+                            <div class="form-group">
+                                <label class="form-label" for="form3Example1c">UserName</label>
+                                <input type="text" formControlName="userNameControl" id="form3Example1c"
+                                    class="form-control" [(ngModel)]="registerUserData.userName"
+                                    placeholder="Enter User Name" />
+                                <div style="color:red;" *ngIf="registerUserData.formregistergroup.touched"
+                                    [hidden]="!(hasError('required','userNameControl'))">
+                                    UserName is required
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="form3Example3c">Email</label>
+                                <input type="email" id="form3Example3c" formControlName="emailControl"
+                                    class="form-control" [(ngModel)]="registerUserData.emailId"
+                                    placeholder="Enter Email" />
+
+                                <div style="color:red;" *ngIf="registerUserData.formregistergroup.touched"
+                                    [hidden]="!(hasError('required','emailControl'))">
+                                    EmailId is required
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="form3Example4c">Password</label>
+                                <input type="password" id="form3Example4c" formControlName="passwordControl"
+                                    class="form-control" [(ngModel)]="registerUserData.password"
+                                    placeholder="Enter Password" />
+                                <div style="color:red;" *ngIf="registerUserData.formregistergroup.touched"
+                                    [hidden]="!(hasError('required','passwordControl'))">
+                                    Password is required
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mx-4 mb-2 mb-lg-4">
+                                <button [disabled]="!(registerUserData.formregistergroup.valid)" type="button"
+                                    class="btn btn-primary btn-lg" (click)="registerUser()">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

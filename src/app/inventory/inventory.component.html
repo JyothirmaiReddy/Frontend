@@ -1,0 +1,67 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white text-center">
+                    <h6>Add Inventory</h6>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="inventoryData.forminventorygroup">
+                        <div class="form-group">
+                            <label>Flight Number</label>
+                            <input type="number" class="form-control" placeholder="Enter Flight Number"
+                                formControlName="flightNumberControl" [(ngModel)]="inventoryData.flightNumber" required>
+                            <div style="color: red;" *ngIf="inventoryData.forminventorygroup.touched"
+                                [hidden]="!(hasError('required','flightNumberControl'))">Flight Number is required</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Source</label>
+                            <input type="text" class="form-control" placeholder="Enter Source" formControlName="fromPlaceControl"
+                                [(ngModel)]="inventoryData.fromPlace">
+                        </div>
+                        <div class="form-group">
+                            <label>Destination</label>
+                            <input type="text" class="form-control" placeholder="Enter Destination" formControlName="toPlaceControl"
+                                [(ngModel)]="inventoryData.toPlace">
+                        </div>
+                        <div class="form-group">
+                            <label>StartDate</label>
+                            <input type="datetime-local" class="form-control" placeholder="Enter StartDate" formControlName="startDatetimeControl"
+                                [(ngModel)]="inventoryData.startDatetime">
+                        </div>
+                        <div class="form-group">
+                            <label>EndDate</label>
+                            <input type="datetime-local" class="form-control" placeholder="Enter EndDate" formControlName="endDatetimeControl"
+                                [(ngModel)]="inventoryData.endDatetime">
+                        </div>
+                        <div class="form-group">
+                            <label>No of Business Seats</label>
+                            <input type="number" class="form-control" placeholder="Enter BusinessSeats" formControlName="businessSeatsControl"
+                                [(ngModel)]="inventoryData.businessSeats">
+                        </div>
+                        <div class="form-group">
+                            <label>Non-business Seats</label>
+                            <input type="number" class="form-control" placeholder="Enter Non-business seats" formControlName="nonBusinessSeatsControl"
+                                [(ngModel)]="inventoryData.nonBusinessSeats">
+                        </div>
+                        <div class="form-group">
+                            <label>Ticket Cost</label>
+                            <input type="number" class="form-control" placeholder="Enter Ticket Cost" formControlName="ticketCostControl"
+                                [(ngModel)]="inventoryData.ticketCost">
+                        </div>
+                        <div class="form-group">
+                            <label>NumberOfRows</label>
+                            <input type="number" class="form-control" placeholder="Enter rows" formControlName="numberOfRowsControl"
+                                [(ngModel)]="inventoryData.numberOfRows">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary"
+                                [disabled]="!(inventoryData.forminventorygroup.valid)"
+                                (click)="RegisterAirline()">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
